@@ -1,4 +1,4 @@
-import { Get, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { IPaginationParams } from 'modules/common/interfaces/pagination';
 import { IOrder } from 'modules/database/interfaces/order';
 import { Order } from 'modules/database/models/order';
@@ -6,7 +6,6 @@ import { Transaction } from 'objection';
 
 @Injectable()
 export class OrderRepository {
-  @Get()
   public async findAll(params: IPaginationParams, transaction?: Transaction): Promise<any> {
     let query = Order.query(transaction)
       .select('*')

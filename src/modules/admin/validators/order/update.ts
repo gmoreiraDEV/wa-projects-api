@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength, Min, MinLength } from 'class-validator';
+import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import { IUpdateOrder } from 'modules/database/interfaces/updateOrder';
 
 export class UpdateValidator implements IUpdateOrder {

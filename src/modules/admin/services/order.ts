@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { IOrder } from 'modules/database/interfaces/order';
+import { IUpdateOrder } from 'modules/database/interfaces/updateOrder';
 import { Order } from 'modules/database/models/order';
 import { OrderRepository } from '../repositories/order';
 
@@ -19,7 +20,7 @@ export class OrderService {
     return order;
   }
 
-  public async update(model: IOrder): Promise<Order> {
+  public async update(model: IUpdateOrder): Promise<Order> {
     const orderToUpdate = await this.orderRepository.findById(model.id);
 
     if (!orderToUpdate) throw new NotFoundException('not-found');

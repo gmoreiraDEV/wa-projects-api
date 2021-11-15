@@ -21,24 +21,24 @@ export class OrderController {
   @Get()
   @ApiResponse({ status: 200, type: [Order] })
   public async findAll(@Query() model: ListValidator) {
-    return await this.orderRespository.findAll(model);
+    return this.orderRespository.findAll(model);
   }
 
   @Get(':orderId')
   @ApiResponse({ status: 200, type: Order })
   public async findById(@Param('orderId', ParseIntPipe) orderId: number) {
-    return await this.orderService.findById(orderId);
+    return this.orderService.findById(orderId);
   }
 
   @Put(':orderId')
   @ApiResponse({ status: 200, type: Order })
   public async update(@Body() model: UpdateValidator) {
-    return await this.orderService.update(model);
+    return this.orderService.update(model);
   }
 
   @Delete(':orderId')
   @ApiResponse({ status: 200, type: Order })
   public async remove(@Param('orderId', ParseIntPipe) orderId: string) {
-    return await this.orderService.remove(orderId);
+    return this.orderService.remove(orderId);
   }
 }
